@@ -1,4 +1,4 @@
-let heading = document.querySelector('h1')
+/*let heading = document.querySelector('h1')
 heading.innerText = "PHP"
 
 console.log(document.URL)
@@ -8,4 +8,10 @@ window.alert('learning js')
 window.localStorage.setItem('test','This is my test..')
 
 //local storage remove this data
-window.localStorage.removeItem('test')
+window.localStorage.removeItem('test')*/
+
+
+//current date time show
+let d = new Date()
+document.write(d)
+
