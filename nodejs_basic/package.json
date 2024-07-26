@@ -1,0 +1,19 @@
+{
+  "name": "nodejs_basic",
+  "version": "1.0.0",
+  "description": "Learning nodejs",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon using_Expressjs.js"
+  },
+  "keywords": [
+    "node",
+    "learning"
+  ],
+  "author": "Fariha",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemon": "^3.1.4"
+  }
+}
