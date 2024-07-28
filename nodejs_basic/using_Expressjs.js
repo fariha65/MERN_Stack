@@ -12,7 +12,7 @@ server.listen(2002);*/
 const express = require("express")
 const app = express()
 
-/**  get post put delete(http call kore,client side thake diffrent type reuest recive e use hoy )
+/**  get post put delete(http call kore,client side thake diffrent type request recive e use hoy )
  * get-send some kind of response to your clint
  * post- client send some kind of data jeta database e save kore
  * put-update data
@@ -25,8 +25,8 @@ app.get('/api',function(req,res){
         name :"Fariha",
         age:23,
     }
-   })//jeson data formate -response commonly interecting between clint&server. data will be tranfered & sent in between using this json
-})//get req comming from vlient side application
+   })//json data formate -response commonly interecting between client&server. data will be tranfered & sent in between using this json
+})//get req comming from client side application
 //here take 2 arguments -1. /api 1st argument-end point url . 2- 2nd argument callback function(ekhane regular function use korechi.2nd arg handle url)
 
 app.listen(7000,()=> console.log("Server is running on port 7000"))
