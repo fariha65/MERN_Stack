@@ -1,26 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+ import {useState} from 'react'; //distructor
+  
+  function App() {
+    const [email , setEmail] = useState("");
+    const [password,setPassword] = useState("");
 
-function App() {
-  return (
-    <div className="App">
-       <h1>Learning react</h1>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    const handleSubmit = (event) =>{
+      event.preventDefault();
+      console.log('STATE=>',email,password);
+    };
 
-export default App;
+    return (
+      <div className="container" >
+        <h1 className="display-4 text-center" >Learning react</h1>
+        <br/>
+
+  <div className="=row">
+  <div className="col-md-6 offset-md-3">
+  <form onSubmit={handleSubmit}>
+  <div className="mb-3">
+    <label  className="form-label">Email address</label>
+    <input 
+    value={email}
+    onChange= {(event)=>setEmail( event.target.value)}  
+    type="email"
+     className="form-control"  />
+    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div className="mb-3">
+    <label className="form-label">Password</label>
+    <input 
+    value={password}
+    onChange={(event)=>setPassword(event.target.value)}
+    type="password" className="form-control" id="exampleInputPassword1" />
+  </div>
+
+  <button type="submit" className="btn btn-primary">Submit</button>
+</form >
+
+        </div>
+        </div>  
+      </div>
+    );
+  }
+
+  export default App;
