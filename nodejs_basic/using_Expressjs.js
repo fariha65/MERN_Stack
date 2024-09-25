@@ -9,8 +9,50 @@ const server = http.createServer(function(req,res){
 server.listen(2002);*/
 
 //express
-const express = require("express")
-const app = express()
+const express = require("express");
+const cors = require("cors");
+const morgan = require("morgan");
+const authRoutes = require('./routes/auth');
+
+const app = express();
+require("dotenv").config();
+//db
+
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri =process.env.DATABASE;
+
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
+
+async function run() {
+  try {
+    // Connect the client to the server	(optional starting in v4.7)
+    await client.connect();
+    // Send a ping to confirm a successful connection
+    await client.db("admin").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+run().catch(console.dir);
+
+
+
+
+
+app.use(cors());
+app.use(morgan("dev"));
+
+//routes middleware
+app.use("/api",authRoutes);
 
 /**  get post put delete(http call kore,client side thake diffrent type request recive e use hoy )
  * get-send some kind of response to your clint
@@ -18,15 +60,7 @@ const app = express()
  * put-update data
  * delete- delete data
 */
-app.get('/api',function(req,res){
-   /* res.send('hello from node api')//yhis string not much useful.*/
-   res.json({
-    user:{
-        name :"Fariha",
-        age:23,
-    }
-   })//json data formate -response commonly interecting between client&server. data will be tranfered & sent in between using this json
-})//get req comming from client side application
+//get req comming from client side application
 //here take 2 arguments -1. /api 1st argument-end point url . 2- 2nd argument callback function(ekhane regular function use korechi.2nd arg handle url)
 
 app.listen(7000,()=> console.log("Server is running on port 7000"))

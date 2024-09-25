@@ -4,7 +4,7 @@
   "description": "Learning nodejs",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon coreNodejsModule.js"
+    "start": "nodemon using_Expressjs.js"
   },
   "keywords": [
     "node",
@@ -13,7 +13,12 @@
   "author": "Fariha",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.19.2"
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongodb": "^6.9.0",
+    "mongoose": "^8.6.3",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.4"
